@@ -5,6 +5,11 @@
 ./index_pipeline/pipeline.csv
 ./index_pipeline/test_query_pipeline.py
 
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Large data files
 index_pipeline/chroma_data/
 *.sqlite3
