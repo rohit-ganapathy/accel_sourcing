@@ -1,0 +1,11 @@
+.env
+./Pipeline_All_organizations__export_Jan-21-2025.csv
+./index_pipeline/prune_pipeline.py
+./index_pipeline/scalable_retrieval_pipeline.py
+./index_pipeline/pipeline.csv
+./index_pipeline/test_query_pipeline.py
+
+# Large data files
+index_pipeline/chroma_data/
+*.sqlite3
+*.bin
