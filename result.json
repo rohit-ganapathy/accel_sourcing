@@ -1,0 +1,288 @@
+{
+  "metadata": {
+    "export_time": "2025-06-05T10:49:36.102265",
+    "total_results": 15,
+    "usage_stats": {
+      "total_searches": 1,
+      "internal_searches": 1,
+      "external_searches": 1,
+      "combined_searches": 0,
+      "total_results_found": 15,
+      "average_processing_time": 30.603442907333374,
+      "total_cost_estimate": 0.0
+    }
+  },
+  "results": [
+    {
+      "name": "Adyen",
+      "website": "http://adyen.com",
+      "description": "Adyen provides a financial technology platform that facilitates payment processing for both online and in-person transactions, integrating various payment methods and financial management features. The platform employs data analytics and machine learning to improve fraud detection and enhance conversion rates for businesses.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic",
+        "gpt_search"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 3,
+      "market_universe": "Technology/Software",
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 1,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "PayPal",
+      "website": "https://www.paypal.com",
+      "description": "A global online payments system supporting online money transfers and serving as an electronic alternative to traditional paper methods.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "gpt_search"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 3,
+      "market_universe": "Technology/Software",
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 2,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Finix",
+      "website": "https://finix.com",
+      "description": "Finix offers a payment solution that leverages flexible APIs and pre-built features, allowing businesses to extensively customize their payment processes. The technology includes tools for optimizing revenue and enhancing productivity in payment management through various configurable settings.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 3,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Flutterwave",
+      "website": "https://flutterwave.com/us",
+      "description": "Flutterwave offers a payment platform that enables online transactions through features such as online checkout, payment links, and e-commerce store creation, supporting over 30 currencies and more than 15 payment methods. The platform is built on well-documented APIs that facilitate functions like transfers, payment verification, and the issuance of instant virtual cards.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 4,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Payabli",
+      "website": "https://payabli.com",
+      "description": "Payabli provides a payment infrastructure platform designed for software companies, enabling the integration of various payment methods through an API-first approach. The platform includes functionalities for payment acceptance, vendor payouts, and operational management, ensuring secure and compliant transactions as businesses scale.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 5,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Fundbox",
+      "website": "https://fundbox.com",
+      "description": "Fundbox offers a revolving line of credit for small businesses, enabling access to working capital of up to $150,000 through a streamlined application process that allows for quick credit decisions and fund availability. The service utilizes technology for cash flow management and provides flexible repayment options to accommodate various business needs.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 6,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Nomod",
+      "website": "https://nomod.com",
+      "description": "The product is a payment application that enables both online and in-person transactions using technologies such as QR codes and NFC, supporting over 135 currencies. It includes features for payment management, quick payouts, and transaction tracking to enhance cash flow for businesses.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 7,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Frame",
+      "website": "https://framepayments.com",
+      "description": "The company offers a payment processing solution that accommodates various payment methods, including credit and debit cards, mobile payments, and digital wallets, while featuring real-time transaction monitoring and fraud prevention capabilities. It employs a developer-friendly API for seamless integration, enhanced by security measures such as 3D Secure and comprehensive reporting tools.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 8,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Mollie",
+      "website": "https://mollie.com",
+      "description": "Mollie provides a payments platform that facilitates both online and in-person transactions, incorporating features for recurring payments and fraud prevention. The platform supports easy integration through prebuilt solutions, libraries, and developer tools to meet diverse business requirements.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 9,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Stykite",
+      "website": "https://stykite.com",
+      "description": "Stykite provides a low-code platform designed for managing subscriptions and recurring payments specifically for the SaaS industry, allowing for customizable pricing models and supporting international transactions. The platform integrates local payment methods, ensures compliance with sales tax regulations, and offers real-time analytics to aid in business growth.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 10,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Edge",
+      "website": "https://tryedge.com",
+      "description": "Edge offers an end-to-end payments platform with support for various payment methods, fraud protection, and fast, reliable processing. It provides streamlined integration APIs and real-time insights for informed decision-making, catering to diverse legal industries and soon to include Apple Pay.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 11,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Straal",
+      "website": "https://straal.com",
+      "description": "The primary offering is a payment merchant solution that enables card payments, open banking transactions, and recurring payments, while integrating fraud prevention technologies. It features a global payment gateway, supports multiple payment method integrations, and provides analytics and reporting tools for effective transaction risk management.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 12,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Fondy",
+      "website": "https://fondy.io",
+      "description": "Fondy offers a B2B embedded payments platform that enables global payment management through a single API, supporting over 300 payment methods. Key features include multicurrency accounts, multiparty split payments, customizable checkout options, and instant settlements to enhance financial operations.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 13,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Yeeld",
+      "website": "https://theyeeld.com",
+      "description": "Yeeld provides consulting and development services for integrating payment systems, with a focus on a Surcharging API that allows businesses to recover processing fees while maintaining regulatory compliance. The integration primarily leverages Stripe technology to facilitate these payment functionalities.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 14,
+      "final_score": 0.18000000000000002
+    },
+    {
+      "name": "Boodil",
+      "website": "https://boodil.com",
+      "description": "Boodil provides a cardless payment platform that enables account-to-account transactions with instant settlements and reduced transaction fees. The technology prioritizes security and includes features aimed at improving payment processing, such as customer rewards and minimizing chargeback risks.",
+      "confidence_score": 0.9,
+      "similarity_score": 0.0,
+      "sources": [
+        "harmonic"
+      ],
+      "dimension_scores": null,
+      "company_id": null,
+      "overlap_score": 2,
+      "market_universe": null,
+      "founded_year": null,
+      "employee_count": null,
+      "search_rank": 15,
+      "final_score": 0.18000000000000002
+    }
+  ]
+}

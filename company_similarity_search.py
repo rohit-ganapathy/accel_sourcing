@@ -302,12 +302,34 @@ class CompanySimilarityOrchestrator:
         if self.search_internal and self.internal_engine:
             try:
                 logger.info("🏠 Searching internal ChromaDB...")
-                internal_results = find_internal_similar_companies(
+                internal_search_results = find_internal_similar_companies(
                     company_url=company_url,
                     top_n=internal_top_n,
                     weight_profile="default",
                     scoring_strategy="weighted_average"
                 )
+                
+                # Convert SimilarityResults to list of dictionaries
+                if internal_search_results and hasattr(internal_search_results, 'results') and internal_search_results.results:
+                    internal_results = []
+                    for result in internal_search_results.results:
+                        try:
+                            # Safely extract data from SimilarityResult object
+                            internal_results.append({
+                                'website': getattr(result, 'website', None),
+                                'company_desc': getattr(result, 'company_name', None) or "Unknown Company",
+                                'confidence_score': getattr(result, 'confidence', 0.0),
+                                'similarity_score': getattr(result, 'similarity_score', 0.0),
+                                'dimension_scores': getattr(result, 'dimension_scores', {}),
+                                'company_id': getattr(result, 'company_id', None)
+                            })
+                        except Exception as e:
+                            logger.warning(f"Failed to convert internal search result: {e}")
+                            continue
+                else:
+                    internal_results = []
+                    logger.debug("No internal search results to convert")
+                    
                 self.usage_stats["internal_searches"] += 1
                 logger.info(f"✅ Internal search found {len(internal_results)} companies")
                 

@@ -1,9 +1,8 @@
-python-dotenv==1.0.0
-openai==1.51.0
-requests==2.31.0
-pydantic==2.5.0
-chromadb==0.4.24
-pandas==2.1.4
-numpy==1.24.4
-firecrawl-py==1.5.0
-click==8.1.7 
+python-dotenv>=1.0.0
+openai>=1.0.0
+requests>=2.31.0
+pydantic>=2.0.0
+chromadb>=0.4.0
+pandas>=2.0.0
+numpy>=1.24.0
+firecrawl>=1.0.0 

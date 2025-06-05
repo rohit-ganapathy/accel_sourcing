@@ -1,0 +1,284 @@
+{
+  "created_at": "2025-06-05T10:45:05.533832",
+  "method": "find_competitors",
+  "params": {
+    "company_name": "https://stripe.com",
+    "market_universe": "Technology/Software",
+    "description_summary": "Company analysis failed. Raw content preview: Join the millions of companies that use Stripe to accept payments online and in person, embed financial services, power custom revenue models, and build a more profitable business.\n\n\nRocket Rides\n\n\nSearch\n\n\nToday\n\n**Net volume**\n\n$3,528,198.72\n\n2:00 PM\n\n**Yesterday**\n\n$2,931,556.34\n\n12:00 AMNow, 2:00 PM11:59 PM\n\n**USD Balance**\n\n$553,257.51\n\nAvailable to pay out\n\nView\n\n**Payouts**\n\n$102,633.07\n\nExpected today\n\nView\n\n**Net volume from sales****+32.8%*"
+  },
+  "result": {
+    "search_query_used": "Stripe company overview",
+    "comprehensive_analysis": {
+      "summary": "Stripe is a financial technology company that provides a suite of payment processing solutions, enabling businesses to accept online and in-person payments, manage subscriptions, and handle complex financial operations. ",
+      "segments": [
+        {
+          "segment_name": "E-commerce Businesses",
+          "pain_points": [
+            "Integrating secure and reliable payment gateways",
+            "Managing recurring billing and subscriptions",
+            "Handling international transactions and multiple currencies"
+          ]
+        },
+        {
+          "segment_name": "SaaS Companies",
+          "pain_points": [
+            "Automating billing processes",
+            "Ensuring compliance with global tax regulations",
+            "Scaling payment infrastructure with business growth"
+          ]
+        },
+        {
+          "segment_name": "Retailers with Online Presence",
+          "pain_points": [
+            "Synchronizing in-person and online sales data",
+            "Implementing seamless checkout experiences",
+            "Preventing fraudulent transactions"
+          ]
+        }
+      ],
+      "market_map": "Financial Services \u0000\u0000\u0000\u0000 Payment Processing \u0000\u0000\u0000\u0000 Online Payment Solutions",
+      "features": "Stripe offers a comprehensive suite of financial tools, including online and in-person payment processing, subscription management, fraud prevention, and financial reporting. ",
+      "differentiators": [
+        "Extensive developer-friendly APIs for seamless integration",
+        "Global reach with support for multiple currencies and payment methods",
+        "Advanced fraud detection and prevention tools",
+        "Comprehensive financial reporting and analytics",
+        "Scalable infrastructure suitable for businesses of all sizes"
+      ],
+      "competitors": [
+        {
+          "name": "PayPal",
+          "description": "A global online payments system supporting online money transfers and serving as an electronic alternative to traditional paper methods.",
+          "overlap_score": 3,
+          "link": "https://www.paypal.com",
+          "confidence_score": 0.9
+        },
+        {
+          "name": "Adyen",
+          "description": "A Dutch company offering payment solutions for point-of-sale, mobile, and eCommerce transactions.",
+          "overlap_score": 3,
+          "link": "https://www.adyen.com",
+          "confidence_score": 0.85
+        },
+        {
+          "name": "Square",
+          "description": "A financial services company providing payment processing solutions, including point-of-sale systems and online payment processing.",
+          "overlap_score": 2,
+          "link": "https://squareup.com",
+          "confidence_score": 0.8
+        },
+        {
+          "name": "Braintree",
+          "description": "A payment gateway offering online and mobile payment processing services, owned by PayPal.",
+          "overlap_score": 3,
+          "link": "https://www.braintreepayments.com",
+          "confidence_score": 0.75
+        },
+        {
+          "name": "Authorize.Net",
+          "description": "A payment gateway service provider offering online payment solutions for small to medium-sized businesses.",
+          "overlap_score": 2,
+          "link": "https://www.authorize.net",
+          "confidence_score": 0.7
+        },
+        {
+          "name": "WePay",
+          "description": "A payment service provider offering integrated payment solutions for platforms and marketplaces.",
+          "overlap_score": 2,
+          "link": "https://go.wepay.com",
+          "confidence_score": 0.65
+        },
+        {
+          "name": "Payoneer",
+          "description": "A financial services company providing online money transfer and digital payment services.",
+          "overlap_score": 2,
+          "link": "https://www.payoneer.com",
+          "confidence_score": 0.6
+        },
+        {
+          "name": "Checkout.com",
+          "description": "A global payment solutions provider offering a unified platform for processing payments.",
+          "overlap_score": 2,
+          "link": "https://www.checkout.com",
+          "confidence_score": 0.55
+        },
+        {
+          "name": "Klarna",
+          "description": "A banking company providing online payment solutions, including buy now, pay later services.",
+          "overlap_score": 1,
+          "link": "https://www.klarna.com",
+          "confidence_score": 0.5
+        },
+        {
+          "name": "FastSpring",
+          "description": "An e-commerce platform specializing in subscription management and payment processing for software companies.",
+          "overlap_score": 1,
+          "link": "https://fastspring.com",
+          "confidence_score": 0.45
+        },
+        {
+          "name": "CyberSource",
+          "description": "A payment management company offering payment processing, fraud management, and payment security services.",
+          "overlap_score": 2,
+          "link": "https://www.cybersource.com",
+          "confidence_score": 0.4
+        },
+        {
+          "name": "Heartland Payment Systems",
+          "description": "A payment processing company offering credit card processing, payroll, and payment solutions.",
+          "overlap_score": 1,
+          "link": "https://www.heartlandpaymentsystems.com",
+          "confidence_score": 0.35
+        },
+        {
+          "name": "WEX",
+          "description": "A financial technology service provider offering payment processing and information management services.",
+          "overlap_score": 1,
+          "link": "https://www.wexinc.com",
+          "confidence_score": 0.3
+        },
+        {
+          "name": "Bolt Financial",
+          "description": "A company providing a cloud-based e-commerce checkout platform.",
+          "overlap_score": 1,
+          "link": "https://www.bolt.com",
+          "confidence_score": 0.25
+        },
+        {
+          "name": "PaySimple",
+          "description": "A service offering payment processing solutions for small businesses, including credit card processing and invoicing.",
+          "overlap_score": 1,
+          "link": "https://paysimple.com",
+          "confidence_score": 0.2
+        }
+      ],
+      "matrix": [
+        {
+          "competitor_name": "PayPal",
+          "feature_parity": "High",
+          "icp_overlap": "High",
+          "gtm_similarity": "High",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Established brand with extensive user base"
+        },
+        {
+          "competitor_name": "Adyen",
+          "feature_parity": "High",
+          "icp_overlap": "High",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Strong presence in European markets"
+        },
+        {
+          "competitor_name": "Square",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "High",
+          "pricing_similarity": "High",
+          "notable_edge": "Integrated hardware solutions for in-person payments"
+        },
+        {
+          "competitor_name": "Braintree",
+          "feature_parity": "High",
+          "icp_overlap": "High",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Owned by PayPal, offering seamless integration"
+        },
+        {
+          "competitor_name": "Authorize.Net",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Long-standing reputation in payment processing"
+        },
+        {
+          "competitor_name": "WePay",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Specializes in platform and marketplace payments"
+        },
+        {
+          "competitor_name": "Payoneer",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Strong focus on international payments"
+        },
+        {
+          "competitor_name": "Checkout.com",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Unified platform for global payments"
+        },
+        {
+          "competitor_name": "Klarna",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Leader in 'buy now, pay later' services"
+        },
+        {
+          "competitor_name": "FastSpring",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Specializes in software and SaaS payments"
+        },
+        {
+          "competitor_name": "CyberSource",
+          "feature_parity": "Medium",
+          "icp_overlap": "Medium",
+          "gtm_similarity": "Medium",
+          "pricing_similarity": "Medium",
+          "notable_edge": "Comprehensive fraud management tools"
+        },
+        {
+          "competitor_name": "Heartland Payment Systems",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Focus on small to medium-sized businesses"
+        },
+        {
+          "competitor_name": "WEX",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Specializes in corporate payment solutions"
+        },
+        {
+          "competitor_name": "Bolt Financial",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Focus on optimizing e-commerce checkout experiences"
+        },
+        {
+          "competitor_name": "PaySimple",
+          "feature_parity": "Low",
+          "icp_overlap": "Low",
+          "gtm_similarity": "Low",
+          "pricing_similarity": "Low",
+          "notable_edge": "Tailored for small business payment needs"
+        }
+      ],
+      "positioning_analysis": "Stripe's strengths lie in its developer-friendly APIs, global reach, and comprehensive suite of financial tools, making it a preferred choice for businesses seeking scalable and customizable payment solutions. However, its reliance on technical integration may pose challenges for smaller businesses lacking development resources, potentially making more plug-and-play solutions like PayPal or Square more appealing to this segment."
+    },
+    "search_confidence": "High",
+    "notes": null,
+    "processing_time": 15.600971937179565,
+    "cached": false
+  }
+}

@@ -12,3 +12,7 @@ Ensure no large try catch blocks for silent errors.
 Ensure the functions are as clean as possible. 
 
 follow OOPs best practices for better code. 
+
+ALWAYS USE THIS VENV:
+
+Activate with: source models/bin/activate

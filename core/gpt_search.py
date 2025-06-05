@@ -170,66 +170,204 @@ class GPTSearchClient:
         except Exception as e:
             logger.warning(f"Failed to cache result: {e}")
     
-    def analyze_company_homepage(self, homepage_text: str, use_cache: bool = True) -> CompanyDescription:
-        """Analyze company homepage content using GPT-4o."""
+    def _create_fallback_company_description(self, homepage_text: str) -> CompanyDescription:
+        """Create a fallback CompanyDescription when API fails to return valid data."""
+        logger.warning("Creating fallback CompanyDescription due to API validation failure")
+        
+        # Extract basic information from the text if possible
+        text_snippet = homepage_text[:500] if homepage_text else "No content available"
+        
+        return CompanyDescription(
+            target_audience="General business users",
+            problem_solved="Business challenges (details unavailable due to analysis error)",
+            solution_approach="Technology solution (details unavailable due to analysis error)",
+            unique_features=["Details unavailable due to analysis error"],
+            uses_ai_automation=False,  # Conservative default
+            description_summary=f"Company analysis failed. Raw content preview: {text_snippet}",
+            market_universe="Technology/Software",  # Safe default
+            universe_boundaries="Technology companies providing software solutions"
+        )
+    
+    def _validate_function_args(self, function_args: str) -> bool:
+        """Validate that function arguments contain the required fields."""
+        try:
+            parsed = json.loads(function_args)
+            if not isinstance(parsed, dict):
+                logger.warning("Function arguments are not a JSON object")
+                return False
+            
+            # Check if it has the required top-level keys for our model
+            required_keys = ['target_audience', 'problem_solved', 'solution_approach', 
+                           'uses_ai_automation', 'description_summary', 'market_universe', 'universe_boundaries']
+            missing_keys = [key for key in required_keys if key not in parsed]
+            if missing_keys:
+                logger.warning(f"Function arguments missing required keys: {missing_keys}")
+                return False
+            return True
+        except json.JSONDecodeError:
+            logger.warning("Function arguments are not valid JSON")
+            return False
+    
+    def analyze_company_homepage(self, homepage_text: str, use_cache: bool = True, max_retries: int = 2) -> CompanyDescription:
+        """
+        Analyze company homepage content using GPT-4o with robust error handling.
+        
+        Args:
+            homepage_text: Raw website content to analyze
+            use_cache: Whether to use cached results
+            max_retries: Maximum number of retry attempts
+            
+        Returns:
+            CompanyDescription: Analysis results or fallback data
+        """
         if use_cache:
             cached = self._get_cached_result("analyze_company", homepage_text=homepage_text[:1000])
             if cached:
-                return CompanyDescription(**cached)
+                try:
+                    return CompanyDescription(**cached)
+                except ValidationError as e:
+                    logger.warning(f"Cached data is invalid, proceeding with fresh analysis: {e}")
         
-        try:
-            completion = self.client.chat.completions.create(
-                model="gpt-4o",
-                messages=[{
-                    "role": "system",
-                    "content": """You are a research assistant analyzing company homepages. 
-                    Extract key information about what the company does, who they serve, 
-                    what problem they solve, and how they solve it. Also define the specific 
-                    market universe/category this company operates in."""
-                }, {
-                    "role": "user",
-                    "content": f"""
-                    Analyze this homepage text and extract key company information:
-                    
-                    Homepage Text:
-                    {homepage_text}
-                    
-                    Provide a clear analysis focusing on:
-                    - Target audience/customers
-                    - Problem being solved
-                    - Solution approach
-                    - Whether they use AI or automation
-                    - Unique features or differentiators
-                    - A detailed description of what the company does
-                    - Market universe: Define the specific market category/universe this company operates in
-                    - Universe boundaries: What defines the edges/boundaries of this market universe?
-                    """
-                }],
-                response_format={
-                    "type": "json_schema",
-                    "json_schema": {
-                        "name": "company_analysis",
-                        "schema": CompanyDescription.model_json_schema()
-                    }
-                }
-            )
-            
-            result = CompanyDescription.model_validate_json(completion.choices[0].message.content)
-            
-            # Update usage stats
-            self.usage_stats["company_analyses"] += 1
-            self.usage_stats["total_cost_estimate"] += 0.03  # Rough estimate
-            
-            # Cache result
-            if use_cache:
-                self._cache_result("analyze_company", result.model_dump(), homepage_text=homepage_text[:1000])
-            
-            logger.info("✅ Company analysis completed")
-            return result
-            
-        except Exception as e:
-            logger.error(f"Error analyzing company homepage: {e}")
-            raise
+        last_exception = None
+        
+        for attempt in range(max_retries + 1):
+            try:
+                logger.debug(f"Company analysis attempt {attempt + 1}/{max_retries + 1}")
+                
+                completion = self.client.chat.completions.create(
+                    model="gpt-4o",
+                    messages=[{
+                        "role": "system",
+                        "content": """You are a research assistant analyzing company homepages. 
+                        Extract key information about what the company does, who they serve, 
+                        what problem they solve, and how they solve it. Also define the specific 
+                        market universe/category this company operates in.
+                        
+                        Use the provided function to return your analysis."""
+                    }, {
+                        "role": "user",
+                        "content": f"""
+                        Analyze this homepage text and extract key company information:
+                        
+                        Homepage Text:
+                        {homepage_text[:2000]}  # Limit to avoid token limits
+                        
+                        Please analyze and call the analyze_company function with the extracted information.
+                        """
+                    }],
+                    tools=[{
+                        "type": "function",
+                        "function": {
+                            "name": "analyze_company",
+                            "description": "Analyze a company's homepage and extract key business information",
+                            "parameters": {
+                                "type": "object",
+                                "properties": {
+                                    "target_audience": {
+                                        "type": "string",
+                                        "description": "Who the company's customers are (e.g., 'Small businesses', 'Enterprise software teams')"
+                                    },
+                                    "problem_solved": {
+                                        "type": "string", 
+                                        "description": "What specific problem or pain point the company addresses"
+                                    },
+                                    "solution_approach": {
+                                        "type": "string",
+                                        "description": "How the company solves the problem (their approach/methodology)"
+                                    },
+                                    "unique_features": {
+                                        "type": "array",
+                                        "items": {"type": "string"},
+                                        "description": "List of unique features or differentiators (can be empty)"
+                                    },
+                                    "uses_ai_automation": {
+                                        "type": "boolean",
+                                        "description": "Whether the company uses AI or automation in their solution"
+                                    },
+                                    "description_summary": {
+                                        "type": "string",
+                                        "description": "Detailed summary of what the company does (2-3 sentences)"
+                                    },
+                                    "market_universe": {
+                                        "type": "string",
+                                        "description": "The specific market category/universe this company operates in"
+                                    },
+                                    "universe_boundaries": {
+                                        "type": "string",
+                                        "description": "What defines the edges/boundaries of this market universe"
+                                    }
+                                },
+                                "required": ["target_audience", "problem_solved", "solution_approach", 
+                                           "uses_ai_automation", "description_summary", "market_universe", "universe_boundaries"]
+                            }
+                        }
+                    }],
+                    tool_choice={"type": "function", "function": {"name": "analyze_company"}}
+                )
+                
+                # Handle function call response
+                message = completion.choices[0].message
+                if not message.tool_calls or len(message.tool_calls) == 0:
+                    raise ValueError("API did not return a function call")
+                
+                tool_call = message.tool_calls[0]
+                if tool_call.function.name != "analyze_company":
+                    raise ValueError(f"API returned unexpected function: {tool_call.function.name}")
+                
+                function_args = tool_call.function.arguments
+                logger.debug(f"Function arguments: {function_args[:200]}...")
+                
+                # Validate function arguments before parsing
+                if not self._validate_function_args(function_args):
+                    raise ValueError("Function arguments are missing required fields")
+                
+                # Parse function arguments as JSON
+                try:
+                    parsed_args = json.loads(function_args)
+                except json.JSONDecodeError as e:
+                    raise ValueError(f"Function arguments are not valid JSON: {e}")
+                
+                # Validate and create CompanyDescription
+                result = CompanyDescription.model_validate(parsed_args)
+                
+                # Update usage stats
+                self.usage_stats["company_analyses"] += 1
+                self.usage_stats["total_cost_estimate"] += 0.03
+                
+                # Cache valid result
+                if use_cache:
+                    self._cache_result("analyze_company", result.model_dump(), homepage_text=homepage_text[:1000])
+                
+                logger.info("✅ Company analysis completed successfully")
+                return result
+                
+            except ValidationError as e:
+                last_exception = e
+                logger.warning(f"Validation error on attempt {attempt + 1}: {e}")
+                if attempt < max_retries:
+                    logger.info(f"Retrying in 1 second... ({attempt + 1}/{max_retries} attempts)")
+                    time.sleep(1)
+                continue
+                
+            except Exception as e:
+                last_exception = e
+                logger.error(f"API error on attempt {attempt + 1}: {e}")
+                if attempt < max_retries:
+                    logger.info(f"Retrying in 2 seconds... ({attempt + 1}/{max_retries} attempts)")
+                    time.sleep(2)
+                continue
+        
+        # All retries failed - create fallback result
+        logger.error(f"All {max_retries + 1} attempts failed. Last error: {last_exception}")
+        logger.info("Creating fallback CompanyDescription to allow system to continue")
+        
+        fallback_result = self._create_fallback_company_description(homepage_text)
+        
+        # Cache fallback result with shorter TTL
+        if use_cache:
+            self._cache_result("analyze_company", fallback_result.model_dump(), homepage_text=homepage_text[:1000])
+        
+        return fallback_result
     
     def find_competitors_web_search(
         self, 
@@ -344,33 +482,57 @@ class GPTSearchClient:
             # Step 2: Analyze the company
             company_analysis = self.analyze_company_homepage(homepage_text, use_cache=use_cache)
             
-            # Step 3: Find competitors
-            search_results = self.find_competitors_web_search(
-                company_analysis, 
-                company_name=company_url,
-                use_cache=use_cache
-            )
+            # Check if we got a fallback result (analysis failed)
+            is_fallback = "details unavailable due to analysis error" in company_analysis.description_summary
+            if is_fallback:
+                logger.warning(f"Company analysis failed for {company_url}, using fallback data")
+                logger.warning("Competitor search may be limited due to incomplete analysis")
             
-            # Step 4: Convert to standardized format
-            similar_companies = []
-            for competitor in search_results.comprehensive_analysis.competitors[:top_n]:
-                company = GPTSearchCompany(
-                    name=competitor.name,
-                    description=competitor.description,
-                    website=competitor.link,
-                    overlap_score=competitor.overlap_score,
-                    confidence_score=competitor.confidence_score,
-                    market_universe=company_analysis.market_universe,
-                    differentiators=search_results.comprehensive_analysis.differentiators
+            # Step 3: Find competitors (even with fallback data, try to find some results)
+            try:
+                search_results = self.find_competitors_web_search(
+                    company_analysis, 
+                    company_name=company_url,
+                    use_cache=use_cache
                 )
-                similar_companies.append(company)
-            
-            logger.info(f"✅ Successfully found {len(similar_companies)} similar companies")
-            return similar_companies
+                
+                # Step 4: Convert to standardized format
+                similar_companies = []
+                for competitor in search_results.comprehensive_analysis.competitors[:top_n]:
+                    # Lower confidence scores if using fallback data
+                    confidence_score = competitor.confidence_score
+                    if is_fallback:
+                        confidence_score = min(confidence_score * 0.5, 0.5)  # Reduce confidence
+                    
+                    company = GPTSearchCompany(
+                        name=competitor.name,
+                        description=competitor.description,
+                        website=competitor.link,
+                        overlap_score=competitor.overlap_score,
+                        confidence_score=confidence_score,
+                        market_universe=company_analysis.market_universe,
+                        differentiators=search_results.comprehensive_analysis.differentiators
+                    )
+                    similar_companies.append(company)
+                
+                result_quality = "with reduced confidence" if is_fallback else "successfully"
+                logger.info(f"✅ Found {len(similar_companies)} similar companies {result_quality}")
+                return similar_companies
+                
+            except Exception as search_error:
+                logger.error(f"Competitor search failed: {search_error}")
+                if is_fallback:
+                    # If both analysis and search failed, return empty list
+                    logger.warning("Both company analysis and competitor search failed, returning empty results")
+                    return []
+                else:
+                    # If only search failed but analysis was good, still raise
+                    raise
             
         except Exception as e:
             logger.error(f"Error finding similar companies for {company_url}: {e}")
-            raise
+            # Return empty list instead of raising to allow batch processing to continue
+            return []
     
     def batch_find_similar_companies(
         self, 

@@ -355,4 +355,25 @@ class ChromaDBManager:
             stats['total_companies'] = max(stats['total_companies'], count)
         
         logger.info(f"📊 Storage stats: {stats['total_companies']} companies across {len(self.dimensions)} dimensions")
-        return stats 
+        return stats
+    
+    def get_collection(self):
+        """
+        Get a collection for backward compatibility.
+        Returns the first dimension collection with a count() method.
+        """
+        class CollectionProxy:
+            def __init__(self, manager):
+                self.manager = manager
+                
+            def count(self):
+                """Return total number of companies (from first dimension)."""
+                dimension = self.manager.dimensions[0]
+                collection = self.manager.collections[dimension]
+                return collection.count()
+        
+        return CollectionProxy(self)
+
+
+# Alias for backward compatibility with test scripts
+ChromaDBStorage = ChromaDBManager 
