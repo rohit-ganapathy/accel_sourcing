@@ -1,0 +1,10 @@
+{
+  "total_processed": 2,
+  "successful": 0,
+  "failed": 2,
+  "skipped": 3,
+  "success_rate": 0.0,
+  "processing_time": 7.802083969116211,
+  "companies_per_minute": 15.380506089784255,
+  "completed_at": "2025-06-05T06:13:16.281057"
+}

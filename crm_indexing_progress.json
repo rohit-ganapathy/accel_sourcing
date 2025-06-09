@@ -1,0 +1,14 @@
+{
+  "processed": [],
+  "failed": [
+    "https://gridhq.com",
+    "https://space.app"
+  ],
+  "skipped": [
+    "https://snowflake.com",
+    "https://anthropic.com",
+    "https://splunk.com"
+  ],
+  "last_processed": null,
+  "updated_at": "2025-06-05T06:13:25.582996"
+}

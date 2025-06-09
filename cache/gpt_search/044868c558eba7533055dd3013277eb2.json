@@ -1,0 +1,19 @@
+{
+  "created_at": "2025-06-05T10:44:49.930332",
+  "method": "analyze_company",
+  "params": {
+    "homepage_text": "Join the millions of companies that use Stripe to accept payments online and in person, embed financial services, power custom revenue models, and build a more profitable business.\n\n\nRocket Rides\n\n\nSearch\n\n\nToday\n\n**Net volume**\n\n$3,528,198.72\n\n2:00 PM\n\n**Yesterday**\n\n$2,931,556.34\n\n12:00 AMNow, 2:00 PM11:59 PM\n\n**USD Balance**\n\n$553,257.51\n\nAvailable to pay out\n\nView\n\n**Payouts**\n\n$102,633.07\n\nExpected today\n\nView\n\n**Net volume from sales****+32.8%**\n\n**$39,274.29**$29,573.54\n\nApr 20Today\n\nUpdated today 7:50 AM\n\n**New customers****+32.1%**\n\n**37**28\n\nApr 20Today\n\nUpdated today 7:50 AM\n\n**Invoices**\n\nPaid\n\n\n**$25,000.00**\n\nOpen\n\n\n**$20,000.00**\n\nPast due\n\n\n**$1,000.00**\n\nUpdated today 7:50 AM\n\nAbstraction Magazine\n\n\n$19 per month\n\n\nOr pay with card\n\n\n\n\n\n\nEmail\n\n\n\nCard Information\n\n\n\nNumber\n\n\nMM / YY\n\nCVC\n\n\nCountry or region\n\n\n\nUnited States\n\n\nZIP\n\n\nPay\n\n\nCancel\n\n\nChase Freedom (\u2022\u2022\u2022\u2022 1234)\n\n\n27 Fredrick Ave Brothers OR\n\n\n\nBilling\n\n\n\nJohn Appleseed\n\n\n27 Fredrick Ave\n\nBrothers, OR 97712\n\n"
+  },
+  "result": {
+    "target_audience": "General business users",
+    "problem_solved": "Business challenges (details unavailable due to analysis error)",
+    "solution_approach": "Technology solution (details unavailable due to analysis error)",
+    "unique_features": [
+      "Details unavailable due to analysis error"
+    ],
+    "uses_ai_automation": false,
+    "description_summary": "Company analysis failed. Raw content preview: Join the millions of companies that use Stripe to accept payments online and in person, embed financial services, power custom revenue models, and build a more profitable business.\n\n\nRocket Rides\n\n\nSearch\n\n\nToday\n\n**Net volume**\n\n$3,528,198.72\n\n2:00 PM\n\n**Yesterday**\n\n$2,931,556.34\n\n12:00 AMNow, 2:00 PM11:59 PM\n\n**USD Balance**\n\n$553,257.51\n\nAvailable to pay out\n\nView\n\n**Payouts**\n\n$102,633.07\n\nExpected today\n\nView\n\n**Net volume from sales****+32.8%**\n\n**$39,274.29**$29,573.54\n\nApr 20Today\n\nUpda",
+    "market_universe": "Technology/Software",
+    "universe_boundaries": "Technology companies providing software solutions"
+  }
+}
